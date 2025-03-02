@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +25,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
   var selectedIndex = 0;
 
   void changePage(int index) {
