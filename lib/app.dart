@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app/routes.dart';
 import 'package:provider/provider.dart';
-import 'app/widgets/schedule_modal.dart';
+import 'widgets/schedule_modal.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

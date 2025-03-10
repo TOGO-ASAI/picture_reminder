@@ -1,5 +1,6 @@
 // modal_sheet_content.dart
 import 'package:flutter/material.dart';
+import '../database/database_helper.dart';
 
 class ScheduleModal extends StatefulWidget {
   const ScheduleModal({super.key});
@@ -49,7 +50,7 @@ class _ScheduleModalState extends State<ScheduleModal> {
     }
   }
 
-  void _submitForm() {
+  Future<void> _submitForm() async {
     if (_formKey.currentState!.validate() &&
         _selectedDate != null &&
         _selectedTime != null) {
@@ -60,9 +61,17 @@ class _ScheduleModalState extends State<ScheduleModal> {
         _selectedTime!.hour,
         _selectedTime!.minute,
       );
-      print('Title: ${_titleController.text}');
-      print('Description: ${_descriptionController.text}');
-      print('Reminder Date and Time: $reminderDateTime');
+      final reminderData = {
+        'title': _titleController.text,
+        'description': _descriptionController.text,
+        'reminder_date': reminderDateTime.toIso8601String(),
+        'is_active': 1,
+        'created_at': DateTime.now().toIso8601String(),
+        'updated_at': DateTime.now().toIso8601String(),
+      };
+
+      // Insert reminder into database
+      await DatabaseHelper.instance.insertReminder(reminderData);
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
