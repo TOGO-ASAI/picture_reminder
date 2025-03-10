@@ -52,7 +52,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
           onGenerateRoute: AppRoutes.generateRoute,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: appState.selectedIndex == 0
+    ? FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
             context: context,
@@ -60,7 +61,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
           );
         },
         child: const Icon(Icons.add),
-      ),
+      )
+    : null,
+
       bottomNavigationBar: SafeArea(
         child: BottomAppBar(
           child: Padding(
