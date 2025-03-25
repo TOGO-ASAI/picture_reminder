@@ -1,0 +1,2 @@
+C:/Users/asait/my_products/picture_reminder/android/app/.cxx/Debug/1a1k4e4u/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/asait/my_products/picture_reminder/android/app/.cxx/Debug/1a1k4e4u/x86_64/CMakeFiles/rebuild_cache.dir

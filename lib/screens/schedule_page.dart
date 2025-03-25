@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/schedule_modal.dart';
 
 class SchedulePage extends StatelessWidget {
   final List<Map<String, String>> scheduleItems = List.generate(
@@ -16,6 +17,16 @@ class SchedulePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('スケジュール'),
         centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => ScheduleModal(),
+          );
+        },
+        child: Icon(Icons.add),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
